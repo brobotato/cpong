@@ -29,6 +29,8 @@ class Ball : public Sprite
 {
 public:
 	void move();
+	void bounce(int x);
 	float returnAngle();
+protected:
 	float _angle = 0.75f;
 };

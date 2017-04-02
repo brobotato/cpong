@@ -76,51 +76,61 @@ void Main::gameLoop()
 		{
 			if (ballAngle == 0.25f)
 			{
-				_ball._angle = 1.75f;
+				_ball.bounce(4);
 			}
 			else
 			{
-				_ball._angle = 1.25f;
+				_ball.bounce(3);
 			}
 		}
 		else if (get<1>(ballCoords) > 464.0f)
 		{
 			if (ballAngle == 1.25f)
 			{
-				_ball._angle = 0.75f;
+				_ball.bounce(2);
 			}
 			else
 			{
-				_ball._angle = 0.25f;
+				_ball.bounce(1);
 			}
 		}
 		if (get<0>(ballCoords) < 40.0f)
 		{
-			if (get<1>(ballCoords) > get<1>(p1Coords) - 32.0f &&
-				get<1>(ballCoords) < get<1>(p1Coords) + 32.0f)
+			if (get<0>(ballCoords) < 0.0f)
+			{
+				_ball.updateCoords(320.0f, 240.0f);
+			}
+			else if (get<1>(ballCoords) > get<1>(p1Coords) - 32.0f &&
+					 get<1>(ballCoords) < get<1>(p1Coords) + 32.0f &&
+					 get<0>(ballCoords) > 20.0f)
 			{
 				if (ballAngle == 1.25f)
 				{
-					_ball._angle = 1.75f;
+					_ball.bounce(4);
 				}
 				else
 				{
-					_ball._angle = 0.25f;
+					_ball.bounce(1);
 				}
 			}
 		}
 		else if (get<0>(ballCoords) > 600.0f)
 		{
-			if (get<1>(ballCoords) > get<1>(p2Coords) - 32.0f &&
-				get<1>(ballCoords) < get<1>(p2Coords) + 32.0f)
+			if (get<0>(ballCoords) > 640.0f)
+			{
+				_ball.updateCoords(320.0f, 240.0f);
+			}
+			else if (get<1>(ballCoords) > get<1>(p2Coords) - 32.0f &&
+					 get<1>(ballCoords) < get<1>(p2Coords) + 32.0f && 
+					 get<0>(ballCoords) < 620.0f)
 			{
 				if (ballAngle == 0.25f)
 				{
-					_ball._angle = 0.75f;
+					_ball.bounce(2);
 				}
 				else
 				{
-					_ball._angle = 1.25f;
+					_ball.bounce(3);
 				}
 			}
 		}

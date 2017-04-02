@@ -98,7 +98,25 @@ void Ball::move()
 	_y += sin(_angle*PI)*sqrt(2.0f)*(0.25f / 240.0f);
 	updateVertex();
 }
-
+void Ball::bounce(int x)
+{
+	if (x==1)
+	{
+		_angle = 0.25f;
+	}
+	else if (x==2)
+	{
+		_angle = 0.75f;
+	}
+	else if (x==3)
+	{
+		_angle = 1.25f;
+	}
+	else if (x==4)
+	{
+		_angle = 1.75f;
+	}
+}
 float Ball::returnAngle()
 {
 	return _angle;
