@@ -40,7 +40,7 @@ void Main::initSystems()
 {
 	SDL_Init(SDL_INIT_EVERYTHING);
 
-	_window = SDL_CreateWindow("GFX Engine",SDL_WINDOWPOS_CENTERED,SDL_WINDOWPOS_CENTERED, _width, _height, SDL_WINDOW_OPENGL);
+	_window = SDL_CreateWindow("Pong",SDL_WINDOWPOS_CENTERED,SDL_WINDOWPOS_CENTERED, _width, _height, SDL_WINDOW_OPENGL);
 	if (_window == nullptr)
 	{
 		fatalError("Window could not be initialized");
@@ -94,10 +94,6 @@ void Main::gameLoop()
 				_ball._angle = 0.25f;
 			}
 		}
-		else
-		{
-			
-		}
 		if (get<0>(ballCoords) < 40.0f)
 		{
 			if (get<1>(ballCoords) > get<1>(p1Coords) - 32.0f &&
@@ -127,10 +123,6 @@ void Main::gameLoop()
 					_ball._angle = 1.25f;
 				}
 			}
-		}
-		else
-		{
-			
 		}
 		drawGame();
 	}
